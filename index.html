@@ -47,6 +47,26 @@
       gap: 10px;
       margin-top: 15px;
     }
+        .carousel-inner img {
+      width: 600px; /* fixed width */
+      height: 350px; /* fixed height */
+      object-fit: cover;
+      margin: auto;
+    }
+    
+    @media (max-width: 768px) {
+      .carousel-inner img {
+        width: 400px;
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .carousel-inner img {
+        width: 300px;
+        height: 180px;
+      }
+    }
 
     .thumbnail-carousel img {
       width: 100px;
