@@ -35,19 +35,20 @@
     .accordion-button:not(.collapsed) i {
       transform: rotate(90deg);
     }
+
     .carousel-main {
       max-width: 800px;
       margin: auto;
     }
 
-    .advanced-carousel {
+    .thumbnail-carousel {
       display: flex;
       justify-content: center;
       gap: 10px;
       margin-top: 15px;
     }
 
-    .advanced-carousel img {
+    .thumbnail-carousel img {
       width: 100px;
       height: 60px;
       object-fit: cover;
@@ -59,9 +60,23 @@
     .thumbnail-carousel img.active {
       border: 2px solid #0d6efd;
     }
+    footer a:hover {
+      color: #0d6efd;
+    }
+
   </style>
 </head>
 <body>
+  <!-- Header -->
+<header class="bg-dark text-white py-3 mb-4">
+  <div class="container d-flex justify-content-between align-items-center">
+    <h1 class="h3 mb-0">NeoWatch</h1>
+    <nav>
+      <a href="#advancedCarousel" class="text-white text-decoration-none me-3">Gallery</a>
+      <a href="#multiAccordion" class="text-white text-decoration-none">FAQ</a>
+    </nav>
+  </div>
+</header>
 
   <div class="container my-5">
     <h2 class="text-center mb-4">NeoWatch Image Carousel</h2>
@@ -97,42 +112,26 @@
             <p>Looks great at the gym, office, or night out.</p>
           </div>
         </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#thumbCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#thumbCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
       </div>
-            <div class="advancedCarousel mt-3">
-                <img src="Neo 1.png" data-bs-target="#thumbCarousel" data-bs-slide-to="0" class="active" />
-                <img src="neo 2.png" data-bs-target="#thumbCarousel" data-bs-slide-to="1" />
-                <img src="neo 3.png" data-bs-target="#thumbCarousel" data-bs-slide-to="2" />
-            </div>
-        </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#advancedCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#advancedCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
 
-        <script>
-            const thumbnails = document.querySelectorAll('.thumbnail-carousel img');
-            const carouselElement = document.querySelector('advancedCarousel');
-            const carousel = new bootstrap.Carousel(carouselElement);
-
-            thumbnails.forEach((thumb, index) => {
-            thumb.addEventListener('click', () => {
-                carousel.to(index);
-                thumbnails.forEach(t => t.classList.remove('active'));
-                thumb.classList.add('active');
-            });
-            });
-
-            carouselElement.addEventListener('slide.bs.carousel', function (e) {
-            thumbnails.forEach(t => t.classList.remove('active'));
-            thumbnails[e.to].classList.add('active');
-            });
-        </script>
+      <!-- Thumbnails -->
+      <div class="thumbnail-carousel mt-3">
+        <img src="Neo 1.png" data-bs-target="#advancedCarousel" data-bs-slide-to="0" class="active" />
+        <img src="neo 2.png" data-bs-target="#advancedCarousel" data-bs-slide-to="1" />
+        <img src="neo 3.png" data-bs-target="#advancedCarousel" data-bs-slide-to="2" />
+      </div>
+    </div>
   </div>
 
+  <!-- Accordion -->
   <div class="container my-5">
     <h2 class="text-center mb-4">NeoWatch FAQ</h2>
 
@@ -181,6 +180,34 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const thumbnails = document.querySelectorAll('.thumbnail-carousel img');
+    const carouselElement = document.querySelector('#advancedCarousel');
+    const carousel = new bootstrap.Carousel(carouselElement);
+
+    thumbnails.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        carousel.to(index);
+        thumbnails.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+    });
+
+    carouselElement.addEventListener('slide.bs.carousel', function (e) {
+      thumbnails.forEach(t => t.classList.remove('active'));
+      thumbnails[e.to].classList.add('active');
+    });
+  </script>
+  <!-- Footer -->
+<footer class="bg-light text-center text-muted py-3 mt-5">
+  <div class="container">
+    <small>
+      Built by <a href="https://github.com/youngustaz/" class="text-decoration-none" target="_blank">YoungUstaz</a> &copy; 2025
+    </small>
+  </div>
+</footer>
+
 </body>
 </html>
