@@ -3,231 +3,344 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carousel and Accordion Demo</title>
+  <title>NeoWatch Landing Page</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
 
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .hero {
+    background: linear-gradient(to right, #0f2716, #204330, #2c5364);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .hero img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    color: #409861;
+    margin-bottom: 10px;
+  }
+
+  .card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+  }
+
+  footer {
+    background-color: #077f09;
+    color: white;
+    padding: 20px 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (max-width: 768px) {
+    /* Navbar Enhancements */
+    .navbar {
+      padding: 10px 20px;
     }
 
-    h2 {
-      font-weight: 600;
-      color: #1b4332;
+    .navbar-toggler {
+      border-color: #fff;
     }
 
-    .carousel-caption {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 10px;
-      border-radius: 8px;
+    .navbar-nav .nav-item {
+      padding: 0 10px;
     }
 
-    .accordion-button i {
-      transition: transform 0.3s;
+    /* Hero Section Adjustments */
+    .hero {
+      padding: 50px 20px;
     }
 
-    .accordion-button.collapsed i {
-      transform: rotate(0deg);
+    /* Features Section on Mobile */
+    .feature-icon {
+      font-size: 2rem;
     }
 
-    .accordion-button:not(.collapsed) i {
-      transform: rotate(90deg);
+    .row .col-md-4 {
+      margin-bottom: 20px;
     }
 
-    .carousel-main {
-      max-width: 800px;
-      margin: auto;
+    .card {
+      padding: 20px;
     }
 
-    .thumbnail-carousel {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 15px;
+    /* Pricing Section Layout */
+    .col-md-4 {
+      margin-bottom: 20px;
+      width: 100%;
     }
-        .carousel-inner img {
-      width: 600px; /* fixed width */
-      height: 350px; /* fixed height */
+
+    /* Carousel */
+    .carousel-item img {
+      width: 100%;
+      max-height: 400px;
       object-fit: cover;
-      margin: auto;
-    }
-    
-    @media (max-width: 768px) {
-      .carousel-inner img {
-        width: 400px;
-        height: 250px;
-      }
-    }
-    
-    @media (max-width: 576px) {
-      .carousel-inner img {
-        width: 300px;
-        height: 180px;
-      }
     }
 
-    .thumbnail-carousel img {
-      width: 100px;
-      height: 60px;
-      object-fit: cover;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: border 0.3s;
+    /* Accordion Enhancements */
+    .accordion-button {
+      font-size: 1rem;
+      padding: 15px;
     }
 
-    .thumbnail-carousel img.active {
-      border: 2px solid #0d6efd;
+    /* Footer */
+    footer {
+      padding: 20px 10px;
     }
-    footer a:hover {
-      color: #0d6efd;
+
+    /* Text Adjustments */
+    h1, h2, h3 {
+      font-size: 1.5rem;
     }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+
+
+
 
   </style>
 </head>
 <body>
-  <!-- Header -->
-<header class="bg-dark text-white py-3 mb-4">
-  <div class="container d-flex justify-content-between align-items-center">
-    <h1 class="h3 mb-0">NeoWatch</h1>
-    <nav>
-      <a href="#advancedCarousel" class="text-white text-decoration-none me-3">Gallery</a>
-      <a href="#multiAccordion" class="text-white text-decoration-none">FAQ</a>
-    </nav>
-  </div>
-</header>
 
-  <div class="container my-5">
-    <h2 class="text-center mb-4">NeoWatch Image Carousel</h2>
-
-    <div id="advancedCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-      <!-- Indicators -->
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#advancedCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#advancedCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#advancedCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-
-      <!-- Slides -->
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="Neo 1.png" class="d-block w-100" alt="Front">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Front View</h5>
-            <p>Elegant, bold, and futuristic design.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="neo 2.png" class="d-block w-100" alt="Side">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Side View</h5>
-            <p>Ultra-thin profile with precision controls.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="neo 3.png" class="d-block w-100" alt="Worn">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Wear It Anywhere</h5>
-            <p>Looks great at the gym, office, or night out.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#advancedCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#advancedCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-
-      <!-- Thumbnails -->
-      <div class="thumbnail-carousel mt-3">
-        <img src="Neo 1.png" data-bs-target="#advancedCarousel" data-bs-slide-to="0" class="active" />
-        <img src="neo 2.png" data-bs-target="#advancedCarousel" data-bs-slide-to="1" />
-        <img src="neo 3.png" data-bs-target="#advancedCarousel" data-bs-slide-to="2" />
-      </div>
-    </div>
-  </div>
-
-  <!-- Accordion -->
-  <div class="container my-5">
-    <h2 class="text-center mb-4">NeoWatch FAQ</h2>
-
-    <div class="accordion" id="multiAccordion">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="faqOne">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#answerOne" aria-expanded="false" aria-controls="answerOne">
-            <i class="bi bi-question-circle me-2"></i> How long does the battery last?
-          </button>
-        </h2>
-        <div id="answerOne" class="accordion-collapse collapse" aria-labelledby="faqOne">
-          <div class="accordion-body">
-            The NeoWatch lasts up to 7 days on a single charge with regular usage.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="faqTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#answerTwo" aria-expanded="false" aria-controls="answerTwo">
-            <i class="bi bi-droplet me-2"></i> Is it waterproof?
-          </button>
-        </h2>
-        <div id="answerTwo" class="accordion-collapse collapse" aria-labelledby="faqTwo">
-          <div class="accordion-body">
-            Yes, it’s water-resistant up to 50 meters, safe for swimming and showers.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="faqThree">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#answerThree" aria-expanded="false" aria-controls="answerThree">
-            <i class="bi bi-phone me-2"></i> Is it compatible with my phone?
-          </button>
-        </h2>
-        <div id="answerThree" class="accordion-collapse collapse" aria-labelledby="faqThree">
-          <div class="accordion-body">
-            NeoWatch works with both iOS and Android smartphones via Bluetooth.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const thumbnails = document.querySelectorAll('.thumbnail-carousel img');
-    const carouselElement = document.querySelector('#advancedCarousel');
-    const carousel = new bootstrap.Carousel(carouselElement);
-
-    thumbnails.forEach((thumb, index) => {
-      thumb.addEventListener('click', () => {
-        carousel.to(index);
-        thumbnails.forEach(t => t.classList.remove('active'));
-        thumb.classList.add('active');
-      });
-    });
-
-    carouselElement.addEventListener('slide.bs.carousel', function (e) {
-      thumbnails.forEach(t => t.classList.remove('active'));
-      thumbnails[e.to].classList.add('active');
-    });
-  </script>
-  <!-- Footer -->
-<footer class="bg-light text-center text-muted py-3 mt-5">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
-    <small>
-      Built by <a href="https://github.com/youngustaz/" class="text-decoration-none" target="_blank">YoungUstaz</a> &copy; 2025
-    </small>
+    <a class="navbar-brand" href="#">NeoWatch</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1 class="display-4">Revolutionize Your Time</h1>
+    <p class="lead">Smart. Stylish. Seamless.</p>
+    <img src="Neo Watch.jpg" alt="NeoWatch Image" />
+    <br><br>
+    <a href="#pricing" class="btn btn-primary btn-lg">Buy Now</a>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="container my-5">
+  <h2 class="text-center mb-4"><b>Features</b></h2>
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+            <i class="bi bi-activity feature-icon"></i>
+            <h5>Fitness Tracking</h5>
+            <p>Track your health and steps all day long with accuracy.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 text-center">
+            <i class="bi bi-bell feature-icon"></i>
+            <h5>Smart Alerts</h5>
+            <p>Stay updated with calls, texts, and app notifications.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 text-center">
+            <i class="bi bi-battery-charging feature-icon"></i>
+            <h5>Long Battery</h5>
+            <p>Enjoy up to 7 days of battery life on a single charge.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="container my-5">
+  <h2 class="text-center mb-4"><b>Pricing</b></h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <h4>Basic</h4>
+        <h3>$99</h3>
+        <p>Essential tracking, alerts, and battery life.</p>
+        <button class="btn btn-outline-primary" aria-label="Select Basic Package">Select</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <h4>Standard</h4>
+        <h3>$149</h3>
+        <p>All features + more watch faces & water resistance.</p>
+        <button class="btn btn-outline-primary">Most Popular</button>
+      </div>
+      <!--This is for making the button to be highlighted as probably the bes possible offer you migh wanna get
+      <div class="col-md-4">
+      <div class="card p-3 text-center border-primary border-2">
+        <h4>Standard</h4>
+        <h3>$149</h3>
+        <p>All features + more watch faces & water resistance.</p>
+        <button class="btn btn-primary">Most Popular</button>
+      </div>-->
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <h4>Pro</h4>
+        <h3>$199</h3>
+        <p>All-in-one with GPS tracking and voice assistant.</p>
+        <button class="btn btn-outline-primary">Select</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- carousel-->
+<!-- Carousel Section -->
+<div class="d-flex justify-content-center my-4" >
+  <div id="advancedCarousel" class="carousel slide" data-bs-ride="carousel" style="max-width: 500px;">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="Neo 1.png" class="d-block mx-auto animated-img" alt="NeoWatch front view showcasing the sleek design">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Front View</h5>
+          <p>Elegant, bold, and futuristic design.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="neo 2.png" class="d-block mx-auto animated-img" alt="Side View">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Side View</h5>
+          <p>Ultra-thin profile with precision controls.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="neo 3.png" class="d-block mx-auto animated-img" alt="Wear It">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Wear It Anywhere</h5>
+          <p>Looks great at the gym, office, or night out.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#advancedCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#advancedCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<!--Accordion-->
+<!-- FAQ Section -->
+<section id="faq" class="container my-5">
+  <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+  <div class="accordion" id="faqAccordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          How long does the battery last?
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          The NeoWatch battery lasts up to 7 days on a single charge.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Is it waterproof?
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes, NeoWatch is water-resistant up to 50 meters.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Does it support iOS and Android?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes, it works perfectly with both iOS and Android devices.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Contact Section -->
+<section id="contact" class="container my-5">
+  <h2 class="text-center mb-4"><b>Contact Us</b></h2>
+  <form action="your-backend-endpoint" method="POST">
+    <div class="mb-3">
+      <label for="name" class="form-label">Your Name</label>
+      <input type="text" class="form-control" id="name" placeholder="John Doe" />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" placeholder="john@example.com" />
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Your Message</label>
+      <textarea class="form-control" id="message" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Send Message</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 NeoWatch. All Rights Reserved.</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
